@@ -14,7 +14,13 @@ Ensure the following npm packages are installed:
 
 ### Configuration
 
-1. Create a `.env` file in the root directory with the following:
+1. Clone the repository from Github
+```
+git clone https://github.com/ojusave/zoom-custom-event-listener.git
+cd zoom-custom-event-listener
+```
+
+2. Create a `.env` file in the root directory with the following:
 
 ```
 clientID=YOUR_ZOOM_CLIENT_ID
