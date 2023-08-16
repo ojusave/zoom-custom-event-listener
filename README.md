@@ -37,7 +37,7 @@ groupID=YOUR_ZOOM_GROUP_ID
 
    - **clientID, clientSecret, and account_id**:
      - These can be obtained by creating a Server-to-Server OAuth app in the Zoom App Marketplace.
-     - Follow the [official documentation](https://developers.zoom.us/docs/internal-apps/s2s-oauth/) to create your app.
+     - Follow the [official documentation](https://developers.zoom.us/docs/internal-apps/create/) to create your app.
      - After setting up your app in the marketplace, you will be provided with a `clientID` and `clientSecret`.
      - `account_id` is usually found in the App Credentials section or under the app's settings.
 
