@@ -1,8 +1,8 @@
 # README.md
 
-## Zoom WebSocket Integration for Real-Time Event Monitoring
+## Zoom Real-Time Custom event monitoring Event Monitoring
 
-This nodeJS application allows you to authenticate using Zoom's Server to Server OAuth, fetch members from a specific Zoom group, and then listen for specific events related to these members using WebSockets.
+This nodeJS application is a good example when you want to set custom parameters not available via API to get the data that you want. This application allows you to authenticate using Zoom's Server to Server OAuth, fetch members from a specific Zoom group, and then listen for specific events related to these members using WebSockets.
 
 ### Prerequisites
 
@@ -30,6 +30,35 @@ subscription_id=YOUR_ZOOM_SUBSCRIPTION_ID
 groupID=YOUR_ZOOM_GROUP_ID
 ```
 
+ Here's how to obtain each of these details:
+
+   - **clientID, clientSecret, and account_id**:
+     - These can be obtained by creating a Server-to-Server OAuth app in the Zoom App Marketplace.
+     - Follow the [official documentation](https://developers.zoom.us/docs/internal-apps/s2s-oauth/) to create your app.
+     - After setting up your app in the marketplace, you will be provided with a `clientID` and `clientSecret`.
+     - `account_id` is usually found in the App Credentials section or under the app's settings.
+
+   - **subscription_id**:
+     - This ID is generated when you create a WebSocket and subscribe to events.
+     - Follow the [WebSocket documentation](https://developers.zoom.us/docs/api/rest/websockets/) for setting this up.
+     - Ensure that you subscribe to the following events:
+       - `meeting.started`
+       - `meeting.participant_qos_summary`
+       - `meeting.participant_data_summary`
+
+   - **groupID**:
+     - Navigate to your Zoom [Group Management Page](https://zoom.us/account/group#/).
+     - Select the desired group name.
+     - In the URL, identify the groupID. For instance, in the link `https://zoom.us/account/group#/detail/abcdefghi/detail`, the groupID is `abcdefghi`.
+
+3. **Set Up Scopes**:
+   
+   Ensure that your Zoom app has the following scopes:
+   - `group:read:admin`
+   - `group:write:admin`
+
+   These scopes will allow the application to read and write group information as an admin.
+
 ### How it Works
 
 1. **Authentication**:
@@ -46,9 +75,15 @@ groupID=YOUR_ZOOM_GROUP_ID
       - On detecting a `meeting.started` event, if the `host_id` matches any stored User ID, the meeting UUID is captured.
       - If the event names are `meeting.participant_qos_summary` or `meeting.participant_data_summary` events, and if the meeting UUID matches the stored UUID, the event details are logged to the console.
 
-### Usage
+## Running the Application
 
-Simply import and invoke the `zoomWebsocketHandler` function in your application. The module automatically handles the setup and event monitoring.
+After setting up, simply run:
+
+```bash
+node index.js
+```
+
+This will initiate the Zoom WebSocket Handler, authenticate with Zoom, and start listening for events.
 
 ---
 
