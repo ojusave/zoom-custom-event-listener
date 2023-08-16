@@ -1,5 +1,8 @@
 # README.md
 
+# Disclaimer
+The following sample application is a personal, open-source project shared by the app creator and not an officially supported Zoom Video Communications, Inc. Zoom Video Communications, Inc., its employees and affiliates are not responsible for the use and maintenance of this application. Please use this sample application for inspiration, exploration and experimentation at your own risk and enjoyment. You may reach out to the app creator and broader Zoom Developer community on https://devforum.zoom.us/ for technical discussion and assistance, but understand there is no service level agreement support for this application. Thank you and happy coding!
+
 ## Zoom Real-Time Custom event monitoring Event Monitoring
 
 This nodeJS application is a good example when you want to set custom parameters not available via API to get the data that you want. This application allows you to authenticate using Zoom's Server to Server OAuth, fetch members from a specific Zoom group, and then listen for specific events related to these members using WebSockets.
